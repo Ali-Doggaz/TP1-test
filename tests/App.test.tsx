@@ -6,7 +6,7 @@ import React from 'react';
 describe('App', () => {
   it('renders headline', () => {
     render(<App />);
-    const headline = screen.getByText("Vite + React");
+    const headline = screen.getByText("Your first Vitest app");
     expect(headline).toBeInTheDocument();
   });
 });
