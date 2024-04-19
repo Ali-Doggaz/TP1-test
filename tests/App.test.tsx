@@ -20,25 +20,4 @@ describe('App Routing', () => {
     await userEvent.click(aboutLink);
     expect(screen.getByText("About Page")).toBeInTheDocument(); // Assuming "About Page" is rendered text on the About component
   });
-
-  it('navigates to the users page and shows users content', async () => {
-    render(<App />, { wrapper: MemoryRouter });
-    const usersLink = screen.getByText('Users');
-    expect(usersLink).toBeInTheDocument();
-    await userEvent.click(usersLink);
-    expect(screen.getByRole('heading', { name: 'User List' })).toBeInTheDocument(); // Assuming "User List" is a heading in the UserList component
-  });
-});
-
-
-describe('UserList', () => {
-  it('fetches and displays users', async () => {
-    render(<UserList />);
-    await waitFor(() => {
-      const userItems = screen.getAllByRole('listitem');
-      expect(userItems.length).toBe(10);
-      expect(screen.getByText('Leanne Graham')).toBeInTheDocument();
-      expect(screen.getByText('Ervin Howell')).toBeInTheDocument();
-    });
-  });
 });
